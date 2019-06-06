@@ -2,16 +2,26 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="accueil.css">
-		<title></title>
+
+		<title>Apprend à compter</title>
 	</head>
 	<body>
 		<div id="container">
-			gkh kjhgkjhgk jh kjhg kjhg kjhg 
+			<audio id='idAudioAccueil'> 
+				<source src='audios/accueil.mp3'>
+			</audio>
 		</div>
+		<div id="buttons">
+			<button type="button" class="btn btn-outline-light" style="border: none;">
+				<img id="btn-play" src="img/play.svg">
+			</button>			
+		</div>
+
+		<script src="js/konva.min.js"></script>	
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>			
+		<script type="text/javascript" src="js/home.js"></script>
 		
-		<script src="konva.min.js"></script>		
-		<script type="text/javascript" src="test.js"></script>
 	</body>
 </html>

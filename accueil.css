@@ -1,6 +1,28 @@
+body 
+{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #f0f0f0;
+}
+
 #container
 {
 	background-image: url('img/accueilArrierePlan.jpg');
 	background-repeat: no-repeat;
 	/*background-color: #3dbece;*/
+}
+
+#buttons 
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#btn-play
+{
+	width: 15px;
+	height: 14px;
+	border-radius: 25px;
 }

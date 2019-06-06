@@ -1,0 +1,70 @@
+<!--DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" type="text/css" href="accueil.css">
+
+		<title></title>
+	</head>
+	<body>
+		<div id="container">
+			<audio  id='idAudioAccueil' controls="controls" preload="auto" src="audios/accueil.mp3"> </audio>
+		</div>
+		
+<audio id="audioPlayer" onload="play1()">
+    <source src="audios/accueil.mp3">
+    <source id="source" onload="play1()" src="audios/accueil.mp3">
+</audio>
+
+<button class="control" onclick="play('audioPlayer', this)">Play</button>
+<button class="control" onclick="resume('audioPlayer')">Stop</button>
+
+		<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+		<script src="konva.min.js"></script>				
+		<script type="text/javascript" src="accueil.js"></script>
+	</body>
+</html-->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/konva@3.3.2/konva.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Konva Listen or Don’t Listen to Events Demo</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f0f0f0;
+      }
+
+      #buttons {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+      }
+      #container
+		{
+			background-image: url('img/accueilArrierePlan.jpg');
+			background-repeat: no-repeat;
+			/*background-color: #3dbece;*/
+		}
+    </style>
+  </head>
+
+  <body>
+    <div id="container"></div>
+    <div id="buttons">
+      <button id="listen">
+        Listen
+      </button>
+      <button id="dontListen">
+        Dont' Listen
+      </button>
+    </div>
+    <script src="accueil.js"></script>
+  </body>
+</html>
