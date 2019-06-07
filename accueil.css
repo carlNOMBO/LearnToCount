@@ -26,3 +26,8 @@ body
 	height: 14px;
 	border-radius: 25px;
 }
+
+.btn
+{
+	border: none;
+}

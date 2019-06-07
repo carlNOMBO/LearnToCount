@@ -1,6 +1,6 @@
 window.addEventListener("load",function function_name() {
 	
-	console.log("Chargrmrny");
+	console.log("Chargement");
 	var width=window.innerWidth;
 	var height=window.innerHeight;
 
@@ -21,18 +21,24 @@ window.addEventListener("load",function function_name() {
 	    height: height,
 	});
 
+  var layer = new Konva.Layer();
 
 	    var simpleText = new Konva.Text({
-        x: width/2-width/10,
-        y: height-height/4,
-        text: 'Jouer',
-        fontSize: 30,
+        x: width/2-width/5,
+        y: height/5,
+        text: 'Apprendre à compter',
+        fontSize: 60,
         fontFamily: 'comic',
-        fill: 'white'
+        fill: '#E16B5A',
+        shadowOffsetX: 20,
+        shadowOffset: 25, 
+        shadowBlur : 40       
       });
 
+  layer.add(simpleText);
+  stage.add(layer);
 	// then create layer
-	var layer = new Konva.Layer();
+	
 
     /*var imageObj = new Image();
     imageObj.onload = function() {
@@ -54,19 +60,16 @@ window.addEventListener("load",function function_name() {
 	 
     
 
-      document.getElementById('btn-play').addEventListener(
+      /*document.getElementById('btn-play').addEventListener(
         'click',
         function() {
-          //oval.listening(true);
-          //layer.drawHit();
-          console.log("oui");
+            var player = document.querySelector('#idAudioAccueil');
+            player.play();
+            //oval.listening(true);
+            //layer.drawHit();
+            console.log("oui");
         },
         false
-      );
-
-	/*var player = document.querySelector('#idAudioAccueil');
-	player.play();*/
+      );*/
 
 });
-
-

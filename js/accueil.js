@@ -1,4 +1,4 @@
-      function writeMessage(message) {
+/*      function writeMessage(message) {
         text.text(message);
         layer.draw();
       }
@@ -59,7 +59,7 @@
           layer.drawHit();
         },
         false
-      );
+      );*/
 
 /*
 window.addEventListener("load",function(){
@@ -74,7 +74,7 @@ if (playPromise !== undefined) {
 }
 })*/
 
-window.addEventListener("load",setTimeout(function(){
+/*window.addEventListener("load",setTimeout(function(){
   var playPromise = document.querySelector('#audioPlayer').play();
 
 if (playPromise !== undefined) {
@@ -84,7 +84,7 @@ if (playPromise !== undefined) {
     alert("error");
   });
 }
-}, 2000))
+}, 2000))*/
 
 /*window.addEventListener("load",function play1() {
 
@@ -118,16 +118,18 @@ window.addEventListener("load",function(){
 }
 })*/
 
- /*function play(idPlayer, control) {
+ function play(idPlayer) {
     var player = document.querySelector('#' + idPlayer);
-  
-    if (player.paused) {
+    player.play();
+
+    console.log("tst");
+   /* if (player.paused) {
         player.play();
-        control.textContent = 'Pause';
+        //control.textContent = 'Pause';
     } else {
         player.pause(); 
-        control.textContent = 'Play';
-    }
+        //control.textContent = 'Play';
+    }*/
 }
 
 
@@ -138,9 +140,5 @@ function resume(idPlayer) {
     player.pause();
 }
 
-$("#source").on("load",function() {
-  var player = document.querySelector('#audioPlayer');
-  player.play();
-});*/
 
 
