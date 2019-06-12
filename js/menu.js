@@ -2,9 +2,14 @@ $('#boutonPlay').on('click',function() {
 	
 	console.log("test");
 
-
-	$("#container").hide();
+	$("#menu").show();
+	$("#container").hide();	
 	$("#boutonPlay").hide();
+	$("#scene1").hide();
+	$("#scene2").hide();
+	$("#scene3").hide();
+	$("#scene4").hide();
+	$("#scene5").hide();
 
 	$("#menu").css({
 		"background-color":"#88001b"
@@ -23,7 +28,7 @@ $('#boutonPlay').on('click',function() {
 	    container: 'menu',   // id of container <div>
 	    width: width,
 	    height: height,
-
+	    fill: 'gray'
 	});
 
 
@@ -51,8 +56,25 @@ $('#boutonPlay').on('click',function() {
 			y:height/4,
 			image: wayImg,
 			width:width/4,
-			height:height/4
+			height:height/4,			
+			stroke:'white',
+			strokeWidth:4,
+			strokeEnabled:false
 		});
+		
+		console.log(way.strokeEnabled());
+		//Evenements de la première image
+		way.on('mouseover',function(){
+			way.strokeEnabled(true);
+			console.log(way.strokeEnabled());
+		});	
+
+		way.on('mouseout',function(){
+			way.strokeEnabled(false);
+			console.log(way.strokeEnabled());
+		});	
+
+		//Ajout dans la scene
 		wayLayer.add(way);
 		stageMenu.add(wayLayer);		
 	};
@@ -117,7 +139,6 @@ $('#boutonPlay').on('click',function() {
 	
 	//stage.add(wayLayer);
 	
-
 });
 
  function play(idPlayer) {

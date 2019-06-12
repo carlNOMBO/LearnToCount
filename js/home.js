@@ -1,5 +1,14 @@
 window.addEventListener("load",function function_name() {
 	
+  $("#container").show(); 
+  $("#boutonPlay").show();
+  $("#menu").hide();
+  $("#scene1").hide();
+  $("#scene2").hide();
+  $("#scene3").hide();
+  $("#scene4").hide();
+  $("#scene5").hide();
+
 	console.log("Chargement");
 	var width=window.innerWidth;
 	var height=window.innerHeight;
@@ -37,6 +46,10 @@ window.addEventListener("load",function function_name() {
 
   layer.add(simpleText);
   stage.add(layer);
+
+
+
+
 	// then create layer
 	
 
