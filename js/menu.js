@@ -74,6 +74,17 @@ $('#boutonPlay').on('click',function() {
 			console.log(way.strokeEnabled());
 		});	
 
+		way.on('click',function(){
+			$("#menu").hide();
+			$("#container").hide();	
+			$("#boutonPlay").hide();
+			$("#scene1").show();
+			$("#scene2").hide();
+			$("#scene3").hide();
+			$("#scene4").hide();
+			$("#scene5").hide();			
+		});
+
 		//Ajout dans la scene
 		wayLayer.add(way);
 		stageMenu.add(wayLayer);		
@@ -89,6 +100,18 @@ $('#boutonPlay').on('click',function() {
 			width:width/4,
 			height:height/4
 		});	
+
+		img.on('click',function(){
+			$("#menu").hide();
+			$("#container").hide();	
+			$("#boutonPlay").hide();
+			$("#scene1").hide();
+			$("#scene2").show();
+			$("#scene3").hide();
+			$("#scene4").hide();
+			$("#scene5").hide();			
+		});		
+
 		imgLayer1.add(img);
 		stageMenu.add(imgLayer1);
 	};
@@ -103,6 +126,18 @@ $('#boutonPlay').on('click',function() {
 			width:width/4,
 			height:height/4
 		});	
+
+		star.on('click',function(){
+			$("#menu").hide();
+			$("#container").hide();	
+			$("#boutonPlay").hide();
+			$("#scene1").hide();
+			$("#scene2").hide();
+			$("#scene3").show();
+			$("#scene4").hide();
+			$("#scene5").hide();			
+		});	
+
 		starLayer.add(star);
 		stageMenu.add(starLayer);
 	};
@@ -117,6 +152,18 @@ $('#boutonPlay').on('click',function() {
 			width:width/4,
 			height:height/4
 		});	
+
+		img.on('click',function(){
+			$("#menu").hide();
+			$("#container").hide();	
+			$("#boutonPlay").hide();
+			$("#scene1").hide();
+			$("#scene2").hide();
+			$("#scene3").hide();
+			$("#scene4").show();
+			$("#scene5").hide();			
+		});	
+
 		imgLayer2.add(img);
 		stageMenu.add(imgLayer2);
 	};
@@ -131,6 +178,18 @@ $('#boutonPlay').on('click',function() {
 			width:width/4,
 			height:height/4
 		});	
+
+		img.on('click',function(){
+			$("#menu").hide();
+			$("#container").hide();	
+			$("#boutonPlay").hide();
+			$("#scene1").hide();
+			$("#scene2").hide();
+			$("#scene3").hide();
+			$("#scene4").hide();
+			$("#scene5").show();			
+		});	
+
 		imgLayer3.add(img);
 		stageMenu.add(imgLayer3);
 	};
