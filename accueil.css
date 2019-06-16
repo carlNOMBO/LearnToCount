@@ -39,3 +39,16 @@ body
 	display: flex;
 	justify-content: space-around;
 }
+
+/*body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #F0F0F0;
+}
+
+#scene2 {
+  position : absolute;
+  top: 5px;
+  left: 5px;
+}*/
