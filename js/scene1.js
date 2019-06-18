@@ -35,41 +35,76 @@ var zoneJeu = new Konva.Rect({
 zoneLayer.add(zoneJeu);
 stage.add(zoneLayer);
 
+
+//Gestion de la grille
+var carreauxLayer = new Konva.Layer();
+
 var carreauxGroup = new Konva.Group({
 	x: xJeu,
 	y: yJeu
 });
 
-for(var i=0; i<6; i++)
+
+function loadImages(source,callback) {
+
+	// get num of sources
+	var image = new Image();
+    	image.onload = function(){
+      	callback(image);
+    };
+    image.src=source;        
+}
+
+var k=1;
+var carreau;
+for(var i=0; i<4; i++)
 {
-	for(var j=0; j<5; j++)
+	for(var j=0; j<3; j++)
 	{
-		var carreau = new Konva.Rect({
-	      x: i * tailleCarreau,
-	      y: j * tailleCarreau ,
-	      width: tailleCarreau,
-	      height: tailleCarreau,
-	      name: ""+i,
-	      fill: "white",
-	      stroke: 'black',
-	      strokeWidth: 4		
-		});
-		carreauxGroup.add(carreau);
+		//loadImages('img/'+k+'.png',function(image) {
+
+			carreau = new Konva.Rect({
+		      x: i * tailleCarreau,
+		      y: j * tailleCarreau ,
+		      width: tailleCarreau,
+		      height: tailleCarreau,
+		      name: ""+i,
+			 // fillPatternImage:image,
+			 // fillPatternRepeat:'no-repeat',		      
+		      fill: "white",
+		      stroke: 'black',
+		      strokeWidth: 4		
+			});
+			carreauxGroup.add(carreau);				
+		//});
+		k++;
 	}
 }
 
-var carreauxLayer = new Konva.Layer();
 carreauxLayer.add(carreauxGroup);
 stage.add(carreauxLayer);
 
-var persolayer = new Konva.Layer();
 
-var imageObj = new Image();
-    imageObj.onload = function() {
+
+//Gestion du personnage
+var persolayer = new Konva.Layer();
+     var container = stage.container();
+
+      // make it focusable
+
+      container.tabIndex = 1;
+      // focus it
+      // also stage will be in focus on its click
+      container.focus();
+
+      const DELTA = 4, gauche=37, haut=38, droite=39, bas=40;
+
+var perso = new Image();
+    perso.onload = function() {
       var play = new Konva.Image({
         x: (xJeu+tailleCarreau/2)-(tailleCarreau/8),
         y: (yJeu+tailleCarreau/2)-(tailleCarreau/4),
-        image: imageObj,
+        image: perso,
         width: tailleCarreau/4,
         height: tailleCarreau/2,
         shadowOffsetX: 20,
@@ -79,5 +114,22 @@ var imageObj = new Image();
 
  		persolayer.add(play);
  		stage.add(persolayer);
+
+      container.addEventListener('keydown', function(e) {
+        if (e.keyCode === gauche) {        	
+          play.x(play.x() - tailleCarreau);
+        } else if (e.keyCode === haut) {        	
+          play.y(play.y() - tailleCarreau);
+        } else if (e.keyCode === droite) {
+          play.x(play.x() + tailleCarreau);
+        } else if (e.keyCode === bas) {
+          play.y(play.y() + tailleCarreau);
+        } else {
+          return;
+        }
+        e.preventDefault();
+        persolayer.batchDraw();
+      }); 		
     };
-    imageObj.src = 'img/droite.png';
+    perso.src = 'img/droite.png';
+

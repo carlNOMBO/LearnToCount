@@ -1,87 +1,64 @@
-      function writeMessage(message) {
-        text.text(message);
-        layer.draw();
+var width = window.innerWidth;
+var height = window.innerHeight;
+
+var testLayer = new Konva.Layer();
+var stage = new Konva.Stage({
+    container:'container',
+    width:width,
+    height:height
+});
+
+      function loadImages(source,callback) {
+
+        // get num of sources
+        var image1 = new Image();
+            image1.onload = function(){
+              callback(image1);
+            };
+            image1.src=source;        
       }
 
-      function loadImages(sources, callback) {
-        var images = {};
-        var loadedImages = 0;
-        var numImages = 0;
-        for (var src in sources) {
-          numImages++;
-        }
-        for (var src in sources) {
-          images[src] = new Image();
-          images[src].onload = function() {
-            if (++loadedImages >= numImages) {
-              callback(images);
-            }
-          };
-          images[src].src = sources[src];
-        }
-      }
+      function draw(images) {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
 
-      function buildStage(images) {
-        var monkey = new Konva.Image({
-          image: images.monkey,
-          x: 120,
-          y: 50
+        var layer = new Konva.Layer();        
+
+        var patternPentagon = new Konva.RegularPolygon({
+          x: 220,
+          y: stage.height() / 2,
+          sides: 5,
+          radius: 70,
+          fillPatternImage: images,
+          //fillPatternOffset: { x: -220, y: 70 },
+          stroke: 'black',
+          strokeWidth: 4,
+          draggable: true
         });
 
-        var lion = new Konva.Image({
-          image: images.lion,
-          x: 280,
-          y: 30
-        });
 
-        monkey.on('mouseover', function() {
-          writeMessage('mouseover monkey');
-        });
-
-        monkey.on('mouseout', function() {
-          writeMessage('');
-        });
-
-        lion.on('mouseover', function() {
-          writeMessage('mouseover lion');
-        });
-
-        lion.on('mouseout', function() {
-          writeMessage('');
-        });
-
-        lion.cache();
-        lion.drawHitFromCache();
-
-        layer.add(monkey);
-        layer.add(lion);
-        layer.add(text);
+        layer.add(patternPentagon);
         stage.add(layer);
       }
-      
-      var stage = new Konva.Stage({
-        container: 'container',
-        width: 578,
-        height: 200
+ 
+      loadImages('img/5.png',function(images) {
+        draw(images);
       });
 
-      var layer = new Konva.Layer();
+for(var i=1; i<2; i++)
+{
+loadImages('img/'+i+'.png',function(image){
+  var monRec = new Konva.Rect({
+   
+    width:100,
+    height:100,    
+    fillPatternImage:image,
+    fillPatternRepeat:'no-repeat',    
+    fillPatternOffset: { x: -20, y: -2 }
+  });    
 
-      var text = new Konva.Text({
-        x: 10,
-        y: 10,
-        fontFamily: 'Calibri',
-        fontSize: 24,
-        text: '',
-        fill: 'black'
-      });
-
-      var sources = {
-        lion: 'img/scene1.png',
-        monkey: 'img/scene2.png'
-        /*scene3: 'img/scene3.png',
-        scene4: 'img/scene4.png',
-        scene5: 'img/scene5.png'*/
-      };
-
-      loadImages(sources, buildStage);
+  testLayer.add(monRec);
+  stage.add(testLayer);
+});
+}  
+  
