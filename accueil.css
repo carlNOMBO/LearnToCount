@@ -1,15 +1,23 @@
+title
+{
+	fill: '#8D9590'
+}
 body 
 {
 	/*margin: 0;
 	padding: 0;
-	overflow: hidden;
-	background-color: #f0f0f0;*/
+	overflow: hidden;*/
+	
 }
 
 #container
-{
-	background-image: url('img/accueilArrierePlan.jpg');
+{   
+	background-color: #f9bb35;
+	background-image: url('img/accueilArrierePlan11.png');
 	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	
 	/*background-color: #3dbece;*/
 }
 
@@ -25,11 +33,18 @@ body
 	width: 15px;
 	height: 14px;
 	border-radius: 25px;
+	box-shadow: 0px 0px 0px;
 }
 
 .btn
 {
 	border: none;
+	border-color: transparent;
+
+}
+.btn:hover
+{
+	background-color: transparent;
 }
 
 #scene1

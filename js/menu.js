@@ -12,7 +12,7 @@ $('#boutonPlay').on('click',function() {
 	$("#scene5").hide();
 
 	$("#menu").css({
-		"background-color":"#88001b"
+		"background-color":"#f9bb35"
 	});
 
 	var width=window.innerWidth;
@@ -35,12 +35,12 @@ $('#boutonPlay').on('click',function() {
 	  var layerTittle = new Konva.Layer();
 
 	    var simpleText = new Konva.Text({
-        x: width/2-width/5,
+        x: width/3-width/9,
         y: height/10,
-        text: 'Apprendre à compter',
+        text: 'Apprendre à compter avec nous',
         fontSize: 60,
         fontFamily: 'comic',
-        fill: '#E16B5A',
+        fill: '#532712',
         shadowOffsetX: 20,
         shadowOffset: 25, 
         shadowBlur : 40       

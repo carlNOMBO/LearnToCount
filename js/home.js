@@ -14,7 +14,7 @@ window.addEventListener("load",function function_name() {
 	var height=window.innerHeight;
 
 	$('#buttons').css({
-		"left": width/2-width/10,
+		"left": width/2-width/30+50,
 		"top": height-height/3
 	});
 
@@ -33,12 +33,12 @@ window.addEventListener("load",function function_name() {
   var layer = new Konva.Layer();
 
 	    var simpleText = new Konva.Text({
-        x: width/2-width/5,
-        y: height/5,
-        text: 'Apprendre à compter',
+        x: width/3-width/9,
+        y: height/8,
+        text: 'Apprendre à compter avec nous',
         fontSize: 60,
         fontFamily: 'comic',
-        fill: '#E16B5A',
+        fill: '#532712',
         shadowOffsetX: 20,
         shadowOffset: 25, 
         shadowBlur : 40       
