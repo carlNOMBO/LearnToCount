@@ -3,7 +3,7 @@ var height=window.innerHeight;
 var widthZoneJeu = width-width/4;
 var heightZonJeu = height-height/4;
 var xJeu = width/2-widthZoneJeu/2;
-var yJeu = 0;
+var yJeu = 3;
 var tailleCarreau = widthZoneJeu/6;
 var widthCareau = widthZoneJeu/6;
 var heightCareau = heightZonJeu/4;
@@ -168,3 +168,56 @@ var perso = new Image();
     };
     perso.src = 'img/droite.png';
 
+
+//shapes controlleurs****************************************************/
+
+//back Layer
+var backLayer = new Konva.Layer();
+
+//go back
+var goBack = new Image();
+goBack.onload = function () {
+  var back = new Konva.Image ({
+    x: 0,
+    y: yJeu,
+    image: goBack,
+    width: 100,
+    height: 70  
+  }); 
+
+  //back events
+  back.on('click',function () {
+      //location.reload(false);
+      $("#menu").show();
+      $("#container").hide(); 
+      $("#boutonPlay").hide();
+      $("#scene1").hide();
+      $("#scene2").hide();
+      $("#scene3").hide();
+      $("#scene4").hide();
+      $("#scene5").hide();
+  })
+
+  //Adding to layer and stage
+  backLayer.add(back);
+  stage.add(backLayer);
+};
+goBack.src='img/back.svg';
+
+//submit layer
+var submitLayer = new Konva.Layer();
+
+//submit
+var submit = new Image();
+submit.onload = function() {
+  var ok = new Konva.Image({
+    x:xJeu+widthCareau*(columnNumber+1)+50,
+    y:heightCareau*(columnNumber-1)+20,
+    image:submit,
+    width:100,
+    height:100
+  });
+  submitLayer.add(ok);
+  stage.add(submitLayer);
+}
+submit.src='img/check-mark.svg';
