@@ -11,6 +11,9 @@ var number=0;
 if(widthCareau>heightCareau) number=heightCareau;
 else number=widthCareau;
 
+var rowNumber=6;
+var columnNumber=5;
+
 
 var stage = new Konva.Stage({
     container: 'scene1',   
@@ -28,80 +31,40 @@ var carreauxGroup = new Konva.Group({
 });
 
 
-/*function loadImages(source,callback) {
-
-  // get num of sources
-  var image = new Image();
-      image.onload = function(){
-        callback(image);
-    };
-    image.src=source;        
-}
-
-var k=1;
-
-for(var i=0; i<6; i++)
-{
-  for(var j=0; j<5; j++)
-  {
-
-      var simpleText = new Konva.Text({
-        x: i * widthCareau,
-        y: j * heightCareau,
-        text: ''+k,
-        fontSize: number,
-        fontFamily: 'Calibri',
-        fill: 'green'
-      });
-
-      var carreau = new Konva.Rect({
-          x: i * widthCareau,
-          y: j * heightCareau ,
-          width: widthCareau,
-          height: heightCareau,
-          name: ""+i,         
-          fill: "white",
-          stroke: 'black',
-          strokeWidth: 4    
-      });
-      carreauxGroup.add(carreau);       
-      carreauxGroup.add(simpleText);
-    k++;
-  }
-}
-
-carreauxLayer.add(carreauxGroup);
-stage.add(carreauxLayer);*/
-
-
 //////Utilisation des images///////////////////////////////////////////////////////
 
-      function loadImages(source,callback) {
 
-        // get num of sources
-        var image1 = new Image();
-            image1.onload = function(){
-              callback(image1);
-            };
-            image1.src=source;        
-      }     
+//load images and use the callback to execute the draw function
+function loadImages(source,callback) {
 
-      function draw(images) {
-        var width = window.innerWidth;
-        var height = window.innerHeight;
-
-        var layer = new Konva.Layer();        
+  // get num of sources
+  var image1 = new Image();
+      image1.onload = function(){
+        callback(image1);
+      };
+      image1.src=source;        
+}     
 
 
-        var mesRect = {};
-        var groupRect = new Konva.Group({
-          x:xJeu,
-          y:yJeu
-        })
-var k=0;
-for(var j=0; j<=2; j++)
+
+//Draw the grid within rect shapes
+function draw(images) 
 {
-      for(var i=0; i<=2; i++)
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+
+  var layer = new Konva.Layer();        
+
+  var mesRect = {};
+  var groupRect = new Konva.Group({
+    x:xJeu,
+    y:yJeu
+  })
+
+  var k=0;
+  for(var j=0; j<columnNumber; j++)
+  {
+      for(var i=0; i<rowNumber; i++)
       { 
         mesRect[k] = new Konva.Rect({
           x: i * widthCareau,
@@ -120,14 +83,14 @@ for(var j=0; j<=2; j++)
         groupRect.add(mesRect[k]);
         k++;
       }
-}     k=0;
+  }     k=0;
         layer.add(groupRect);
         stage.add(layer);
-      }
+}
  
  var imgs = [];
 
- for(var i=1; i<=10; i++){
+ for(var i=1; i<=30; i++){
       loadImages('img/'+i+'.png',function(image) {
         imgs.push(image)
         //draw(images);
@@ -170,18 +133,31 @@ var perso = new Image();
     stage.add(persolayer);
 
       container.addEventListener('keydown', function(e) {
+        var deplacement;
+
         if (e.keyCode === gauche) {
-                                    
-          play.x(play.x() - widthCareau);
+          
+          deplacement=play.x() - widthCareau;                                    
+          if(deplacement>xJeu) 
+            play.x(deplacement);          
         } 
-        else if (e.keyCode === haut) {          
-          play.y(play.y() - heightCareau);
+        else if (e.keyCode === haut) {  
+
+          deplacement = play.y() - heightCareau;       
+          if(deplacement>yJeu)
+            play.y(deplacement);
         } 
-        else if (e.keyCode === droite) {          
-          play.x(play.x() + widthCareau);
+        else if (e.keyCode === droite) {   
+
+          deplacement = play.x() + widthCareau;    
+          if(deplacement<xJeu+widthCareau*rowNumber)
+            play.x(deplacement);
         } 
         else if (e.keyCode === bas) {
-          play.y(play.y() + heightCareau);
+
+          deplacement = play.y() + heightCareau;
+          if(deplacement<yJeu+heightCareau*columnNumber)
+            play.y(deplacement);
         } 
         else {
           return;
